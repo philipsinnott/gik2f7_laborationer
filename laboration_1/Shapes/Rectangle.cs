@@ -8,7 +8,16 @@ namespace Laboration1
 {
     public class Rectangle : Shape
     {
-        public double CalculateArea(double width, double height) => width * height;
-        public double CalculateCircumference(double width, double height) => 2 * width + 2 * height;
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public override double CalculateArea() => Width * Height;
+        public override double CalculateCircumference() => 2 * Width + 2 * Height;
+
+        public Rectangle()
+        {
+            Width = 3;
+            Height = 2;
+        }
+
     }
 }

@@ -4,7 +4,7 @@ namespace Laboration1
 {
     public class Program
     {
-        static void Main()
+        public static void Main()
         {
             Console.WriteLine("Laboration 1 in GIK2F7 | Inheritance & polymorphism");
             Console.WriteLine("Some test examples:\n------------------- ");
@@ -13,15 +13,28 @@ namespace Laboration1
             Triangle t = new Triangle();
             Rectangle r = new Rectangle();
 
+            // Set value of properties
+            /*
+            c.Radius = 3;
+            c.Diameter = 5;
+            t.Width = 10;
+            t.Height = 4;
+            t.SideA = 2.5;
+            t.SideB = 7.25;
+            t.SideC = 3.12;
+            r.Width = 3;
+            r.Height = 2;
+            */
+
             // Circumference
-            Console.WriteLine(c.CalculateCircumference(5));
-            Console.WriteLine(t.CalculateCircumference(5, 7.3, 2));
-            Console.WriteLine(r.CalculateCircumference(7.23, 4));
+            Console.WriteLine(c.CalculateCircumference());
+            Console.WriteLine(t.CalculateCircumference());
+            Console.WriteLine(r.CalculateCircumference());
 
             // Area
-            Console.WriteLine(c.CalculateArea(3));
-            Console.WriteLine(t.CalculateArea(27, 3.4));
-            Console.WriteLine(r.CalculateArea(5, 2.5));
+            Console.WriteLine(c.CalculateArea());
+            Console.WriteLine(t.CalculateArea());
+            Console.WriteLine(r.CalculateArea());
 
         }
     }

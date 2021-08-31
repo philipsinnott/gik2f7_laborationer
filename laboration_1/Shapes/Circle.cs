@@ -8,8 +8,16 @@ namespace Laboration1
 {
     public class Circle : Shape
     {
-        public double CalculateArea(double radius) => Math.PI * Math.Pow(radius, 2);
+        public double Radius { get; set; }
+        public double Diameter { get; set; }
+        public override double CalculateArea() => Math.PI * Math.Pow(Radius, 2);
+        public override double CalculateCircumference() => Math.PI * Diameter;
 
-        public double CalculateCircumference(double diameter) => Math.PI * diameter;
+        public Circle()
+        {
+            Radius = 3;
+            Diameter = 5;
+        }
     }
+
 }

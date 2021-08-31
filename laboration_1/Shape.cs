@@ -8,10 +8,10 @@ namespace Laboration1
 {
     public class Shape
     {
-        public double CalculateArea(double width, double height) => width * height;
+        public virtual double CalculateArea() => 0;
 
         // Omkrets = Circumference | Perimeter
-        public double CalculateCircumference(double width, double height) => width + width + height + height;
+        public virtual double CalculateCircumference() => 0;
 
     }
 }
