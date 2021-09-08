@@ -9,14 +9,12 @@ namespace Laboration2
             Console.WriteLine("Laboration 2 in GIK2F7 | Abstraction, encapsulation & interfaces");
             Console.WriteLine("----------------------------------------------------------------\n");
 
-            Circle c = new(2, 5);
-            Triangle t = new(4.5, 7.5, 2, 5, 7);
-            Rectangle r = new(3.4, 6);
+            Shape[] array = new Shape[] { new Circle(2, 5), new Triangle(4.5, 7.5, 2, 5, 7), new Rectangle(3.4, 6) };
 
-            Console.WriteLine(c.ToString());
-            Console.WriteLine(t.ToString());
-            Console.WriteLine(r.ToString());
-
+            foreach (Shape s in array)
+            {
+                Console.WriteLine(s.ToString());
+            }
             Console.ReadKey();
         }
     }
