@@ -31,6 +31,16 @@ namespace Laboration3
 
             Console.WriteLine();
 
+            List<Role> roles = CreateRoles();
+
+            // Print out Departments
+            foreach (Role role in roles)
+            {
+                Console.WriteLine($"ID: {role.ID}, Name: {role.Name}     Description: {role.Description}.");
+            }
+
+            Console.WriteLine();
+
             // Create Departments
             List<Department> departments = CreateDepartments();
 
@@ -62,6 +72,27 @@ namespace Laboration3
             output.Add(new Department(30, "QA", "Description of QA department"));
             output.Add(new Department(40, "Designers", "Description of Designer department"));
             output.Add(new Department(50, "Producers", "Description of Producer department"));
+            return output;
+        }
+
+        public static List<Role> CreateRoles()
+        {
+            List<Role> output = new();
+            output.Add(new Role(1, "Developer Director","Part of Management"));
+            output.Add(new Role(2, "QA Project Manager", "Part of Management"));
+            output.Add(new Role(3, "Quality Analyst", "Part of Management"));
+            output.Add(new Role(4, "Senior IT Manager", "Part of Management"));
+            output.Add(new Role(5, "Producer", "Part of Producers"));
+            output.Add(new Role(6, "Executive Producer", "Part of Producers"));
+            output.Add(new Role(7, "Senior HR Manager", "Part of HR"));
+            output.Add(new Role(8, "HR Coordinator", "Part of HR"));
+            output.Add(new Role(9, "Animator", "Part of Designers"));
+            output.Add(new Role(10, "Game Designer", "Part of Designers"));
+            output.Add(new Role(11, "Level Designer", "Part of Designers"));
+            output.Add(new Role(12, "Sound Designer", "Part of Designers"));
+            output.Add(new Role(13, "Software Engineer", "Part of Developers"));
+            output.Add(new Role(14, "UI Software Engineer", "Part of Developers"));
+            output.Add(new Role(15, "System Engineer", "Part of Developers"));
             return output;
         }
     }
