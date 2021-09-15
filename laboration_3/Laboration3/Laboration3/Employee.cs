@@ -28,7 +28,5 @@ namespace Laboration3
         {
             return $"{FirstName} {LastName}";
         }
-
-
     }
 }

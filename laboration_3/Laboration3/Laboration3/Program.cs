@@ -5,48 +5,32 @@ namespace Laboration3
 {
     public class Program
     {
-        
         static void Main(string[] args)
         {
+            // Display startup text
+            StandardMessages.DisplayStartupText();
+            StandardMessages.DisplayHrLine();
+
             // Creates Employees
-            List<Employee> employees = CreateEmployees();
+            List<Employee> employees = CreateData.CreateEmployees();
 
             // Print out Employees
-            foreach (Employee e in employees)
-            {
-               Console.WriteLine($"Hi, I'm {e.FullName()}, I was employed at DICE in {e.DateOfEmployment:Y}.");
-            }
+            PrintData.PrintEmployees(employees);
+            StandardMessages.DisplayHrLine();
 
-            Console.WriteLine("========================================");
+            // Create Roles
+            List<Role> roles = CreateData.CreateRoles();
 
-            List<Role> roles = CreateRoles();
-
-            // Print out Departments
-            foreach (Role role in roles)
-            {
-                Console.WriteLine($"ID: {role.ID}, Name: {role.Name}     Description: {role.Description}.");
-            }
-
-            Console.WriteLine("========================================");
+            // Print out roles
+            PrintData.PrintRoles(roles);
+            StandardMessages.DisplayHrLine();
 
             // Create Departments
-            List<Department> departments = CreateDepartments();
-
-            departments[0].Employees.Add(employees[0]);
-            departments[0].Employees.Add(employees[1]);
-            departments[1].Employees.Add(employees[2]);
-
-            Console.WriteLine("========================================");
+            List<Department> departments = CreateData.CreateDepartments();
+            
             // Print out Departments
-            foreach (Department dept in departments)
-            {
-                Console.WriteLine($"ID: {dept.ID}, Name: {dept.Name}\nDescription: {dept.Description}.");
-                foreach (var employee in dept.Employees)
-                {
-                    Console.WriteLine($"Fullname: {employee.FullName()}");
-                }
-            }
-            Console.WriteLine("========================================");
+            PrintData.PrintDepartments(departments);
+            StandardMessages.DisplayHrLine();
 
             // Create Company
             var company = new Company(
@@ -60,54 +44,9 @@ namespace Laboration3
             // Print Company Details
             company.GetDetails();
         }
-
-        public static List<Employee> CreateEmployees()
-        {
-            List<Employee> output = new List<Employee>();
-            output.Add(new Employee ("Anders", "Hallberg", Convert.ToDateTime("2014-08-05")));
-            output.Add(new Employee ("Anders", "Lind",Convert.ToDateTime("2013-12-22")));
-            output.Add(new Employee ("Amo", "Mostofi", Convert.ToDateTime("2012-12-05")));
-            output.Add(new Employee ("Elin", "Holmberg", Convert.ToDateTime("2018-02-05")));
-            output.Add(new Employee ("Edvin", "Eriksson", Convert.ToDateTime("2020-07-16")));
-            return output;
-        }
-
-        public static List<Department> CreateDepartments()
-        {
-            List<Employee> dept10 = new();
-            List<Employee> dept20 = new();
-            List<Employee> dept30 = new();
-            List<Employee> dept40 = new();
-            List<Employee> dept50 = new();
-
-            List<Department> output = new();
-            output.Add(new Department(10, "Developers", "Description of developer department", dept10));
-            output.Add(new Department(20, "HR", "Description of HR department", dept20));
-            output.Add(new Department(30, "QA", "Description of QA department", dept30));
-            output.Add(new Department(40, "Designers", "Description of Designer department", dept40));
-            output.Add(new Department(50, "Producers", "Description of Producer department", dept50));
-            return output;
-        }
-
-        public static List<Role> CreateRoles()
-        {
-            List<Role> output = new();
-            output.Add(new Role(1, "Developer Director","Part of Management"));
-            output.Add(new Role(2, "QA Project Manager", "Part of Management"));
-            output.Add(new Role(3, "Quality Analyst", "Part of Management"));
-            output.Add(new Role(4, "Senior IT Manager", "Part of Management"));
-            output.Add(new Role(5, "Producer", "Part of Producers"));
-            output.Add(new Role(6, "Executive Producer", "Part of Producers"));
-            output.Add(new Role(7, "Senior HR Manager", "Part of HR"));
-            output.Add(new Role(8, "HR Coordinator", "Part of HR"));
-            output.Add(new Role(9, "Animator", "Part of Designers"));
-            output.Add(new Role(10, "Game Designer", "Part of Designers"));
-            output.Add(new Role(11, "Level Designer", "Part of Designers"));
-            output.Add(new Role(12, "Sound Designer", "Part of Designers"));
-            output.Add(new Role(13, "Software Engineer", "Part of Developers"));
-            output.Add(new Role(14, "UI Software Engineer", "Part of Developers"));
-            output.Add(new Role(15, "System Engineer", "Part of Developers"));
-            return output;
-        }
+        /*
+            departments[0].Employees.Add(employees[0]);
+            departments[0].Employees.Add(employees[1]);
+            departments[1].Employees.Add(employees[2]);*/
     }
 }

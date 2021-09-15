@@ -11,7 +11,6 @@ namespace Laboration3
         public int ID { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
-
         public List<Employee> Employees { get; private set; }
 
         public Department(int id, string name, string description, List<Employee> employees)
@@ -26,10 +25,5 @@ namespace Laboration3
         {
             throw new NotImplementedException();
         }
-
-        //public List<Department> CreateDepartment(int id, string name, string description)
-        //{
-        //    return new Department() { ID = id, Name = name, Description = description };
-        //}
     }
 }
