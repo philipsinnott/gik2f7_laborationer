@@ -12,16 +12,14 @@ namespace Laboration3
         public string Name { get; private set; }
         public string Description { get; private set; }
 
-        public Department()
-        {
+        public List<Employee> Employees { get; private set; }
 
-        }
-
-        public Department(int id, string name, string description)
+        public Department(int id, string name, string description, List<Employee> employees)
         {
             ID = id;
             Name = name;
             Description = description;
+            Employees = employees;
         }
 
         public int GetNumberOfEmployees()

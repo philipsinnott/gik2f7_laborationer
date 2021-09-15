@@ -12,18 +12,20 @@ namespace Laboration3
         public string Address { get; private set; }
         public string OrganizationNumber { get; private set; }
         public string URL { get; private set; }
+        public List<Department> Departments { get; set; }
 
         public Company()
         {
 
         }
 
-        public Company(string name, string address, string orgnr, string url)
+        public Company(string name, string address, string orgnr, string url, List<Department> departments)
         {
             Name = name;
             Address = address;
             OrganizationNumber = orgnr;
             URL = url;
+            Departments = departments;
         }
 
         public int GetNumberOfEmployees()

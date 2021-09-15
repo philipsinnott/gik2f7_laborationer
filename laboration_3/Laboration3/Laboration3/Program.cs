@@ -8,18 +8,6 @@ namespace Laboration3
         
         static void Main(string[] args)
         {
-            // Create Company
-            var company = new Company(
-                "DICE (Digital Illusions CE AB)",
-                "Södermalmsallén 36, 118 28 Stockholm Sweden",
-                "556710-6520",
-                "https://www.dice.se");
-
-            // Print Company Details
-            company.GetDetails();
-
-            Console.WriteLine();
-
             // Creates Employees
             List<Employee> employees = CreateEmployees();
 
@@ -29,7 +17,7 @@ namespace Laboration3
                Console.WriteLine($"Hi, I'm {e.FullName()}, I was employed at DICE in {e.DateOfEmployment:Y}.");
             }
 
-            Console.WriteLine();
+            Console.WriteLine("========================================");
 
             List<Role> roles = CreateRoles();
 
@@ -39,18 +27,38 @@ namespace Laboration3
                 Console.WriteLine($"ID: {role.ID}, Name: {role.Name}     Description: {role.Description}.");
             }
 
-            Console.WriteLine();
+            Console.WriteLine("========================================");
 
             // Create Departments
             List<Department> departments = CreateDepartments();
 
+            departments[0].Employees.Add(employees[0]);
+            departments[0].Employees.Add(employees[1]);
+            departments[1].Employees.Add(employees[2]);
+
+            Console.WriteLine("========================================");
             // Print out Departments
             foreach (Department dept in departments)
             {
                 Console.WriteLine($"ID: {dept.ID}, Name: {dept.Name}\nDescription: {dept.Description}.");
+                foreach (var employee in dept.Employees)
+                {
+                    Console.WriteLine($"Fullname: {employee.FullName()}");
+                }
             }
+            Console.WriteLine("========================================");
 
+            // Create Company
+            var company = new Company(
+                "DICE (Digital Illusions CE AB)",
+                "Södermalmsallén 36, 118 28 Stockholm Sweden",
+                "556710-6520",
+                "https://www.dice.se",
+                departments
+                );
 
+            // Print Company Details
+            company.GetDetails();
         }
 
         public static List<Employee> CreateEmployees()
@@ -66,12 +74,18 @@ namespace Laboration3
 
         public static List<Department> CreateDepartments()
         {
+            List<Employee> dept10 = new();
+            List<Employee> dept20 = new();
+            List<Employee> dept30 = new();
+            List<Employee> dept40 = new();
+            List<Employee> dept50 = new();
+
             List<Department> output = new();
-            output.Add(new Department(10, "Developers", "Description of developer department"));
-            output.Add(new Department(20, "HR", "Description of HR department"));
-            output.Add(new Department(30, "QA", "Description of QA department"));
-            output.Add(new Department(40, "Designers", "Description of Designer department"));
-            output.Add(new Department(50, "Producers", "Description of Producer department"));
+            output.Add(new Department(10, "Developers", "Description of developer department", dept10));
+            output.Add(new Department(20, "HR", "Description of HR department", dept20));
+            output.Add(new Department(30, "QA", "Description of QA department", dept30));
+            output.Add(new Department(40, "Designers", "Description of Designer department", dept40));
+            output.Add(new Department(50, "Producers", "Description of Producer department", dept50));
             return output;
         }
 
