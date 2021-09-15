@@ -11,18 +11,18 @@ namespace Laboration3
             StandardMessages.DisplayStartupText();
             StandardMessages.DisplayHrLine();
 
-            // Creates Employees
-            List<Employee> employees = CreateData.CreateEmployees();
-
-            // Print out Employees
-            PrintData.PrintEmployees(employees);
-            StandardMessages.DisplayHrLine();
-
             // Create Roles
             List<Role> roles = CreateData.CreateRoles();
 
             // Print out roles
             PrintData.PrintRoles(roles);
+            StandardMessages.DisplayHrLine();
+
+            // Creates Employees
+            List<Employee> employees = CreateData.CreateEmployees(roles);
+
+            // Print out Employees
+            PrintData.PrintEmployees(employees);
             StandardMessages.DisplayHrLine();
 
             // Create Departments

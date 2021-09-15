@@ -8,14 +8,14 @@ namespace Laboration3
 {
     public class CreateData
     {
-        public static List<Employee> CreateEmployees()
+        public static List<Employee> CreateEmployees(List<Role> role)
         {
             List<Employee> output = new List<Employee>();
-            output.Add(new Employee("Anders", "Hallberg", Convert.ToDateTime("2014-08-05")));
-            output.Add(new Employee("Anders", "Lind", Convert.ToDateTime("2013-12-22")));
-            output.Add(new Employee("Amo", "Mostofi", Convert.ToDateTime("2012-12-05")));
-            output.Add(new Employee("Elin", "Holmberg", Convert.ToDateTime("2018-02-05")));
-            output.Add(new Employee("Edvin", "Eriksson", Convert.ToDateTime("2020-07-16")));
+            output.Add(new Employee("Anders", "Hallberg", Convert.ToDateTime("2014-08-05"), role.Where(x => x.ID == 13).Single()));
+            output.Add(new Employee("Anders", "Lind", Convert.ToDateTime("2013-12-22"), role.Where(x => x.ID == 13).Single()));
+            output.Add(new Employee("Amo", "Mostofi", Convert.ToDateTime("2012-12-05"), role.Where(x => x.ID == 5).Single()));
+            output.Add(new Employee("Elin", "Holmberg", Convert.ToDateTime("2018-02-05"), role.Where(x => x.ID == 5).Single()));
+            output.Add(new Employee("Edvin", "Eriksson", Convert.ToDateTime("2020-07-16"), role.Where(x => x.ID == 11).Single()));
             return output;
         }
 

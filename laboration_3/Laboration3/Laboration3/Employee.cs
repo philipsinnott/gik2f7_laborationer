@@ -12,16 +12,18 @@ namespace Laboration3
         public string LastName { get; private set; }
         public DateTime DateOfEmployment { get; private set; }
         public bool IsFired { get; private set; } = false;
+        public Role Role { get; private set; }
 
         public Employee()
         {
 
         }
-        public Employee(string fName, string lName, DateTime dateOfEmployment)
+        public Employee(string fName, string lName, DateTime dateOfEmployment, Role role)
         {
             FirstName = fName;
             LastName = lName;
             DateOfEmployment = dateOfEmployment;
+            Role = role;
         }
 
         public string FullName()

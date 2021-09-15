@@ -12,7 +12,7 @@ namespace Laboration3
         {
             foreach (Employee e in employees)
             {
-                Console.WriteLine($"Hi, I'm {e.FullName()}, I was employed at DICE in {e.DateOfEmployment:Y}.");
+                Console.WriteLine($"{e.FullName()} is employed as a {e.Role.Name} at DICE and was hired {e.DateOfEmployment:Y}.");
             }
         }
         public static void PrintRoles(List<Role> roles)
