@@ -20,8 +20,10 @@ namespace Laboration3
                 "https://www.dice.se",
                 departments);
 
+            /*DataCapture.CreateNewStaffMember(roles);*/
             // Display Console Menu
             ConsoleUI.MenuInteract(company, employees, departments, roles);
+            
         }
     }
 }

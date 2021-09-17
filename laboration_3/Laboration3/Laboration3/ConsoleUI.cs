@@ -39,6 +39,11 @@ namespace Laboration3
                         Console.WriteLine("\n+==  List of Employees in specified Department  ============+\n");
                         PrintData.TableDepartmentEmployees(departments);
                         break;
+                    case '5':
+                        Console.WriteLine("\n+==  Add temporary staff member ============+\n");
+                        DataCapture.CreateNewStaffMember(employees, roles);
+                        DataCapture.AddStaffMemberToDepartment(employees, departments);
+                        break;
                     case 'r':
                     case 'R':
                         Console.Clear();
@@ -63,7 +68,8 @@ namespace Laboration3
                 "|  Press '1' Company Details                                |\n" +
                 "|  Press '2' List All Employees                             |\n" +
                 "|  Press '3' List Departments & Roles                       |\n" +
-                "|  Press '4' List Employees in Department                   |\n" +
+                "|  Press '4' List Employees in Department                   |\n" +   
+                "|  Press '5' Add temporary staff member                     |\n" +
                 "|-----------------------------------------------------------|\n" +
                 "|  Press 'R' Reset the screen                               |\n" +
                 "|  Press 'Q' to quit the program                            |\n" +

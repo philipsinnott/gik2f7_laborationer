@@ -48,8 +48,15 @@ namespace Laboration3
             TableDepartments(departments);
             Console.Write("\nType which department ID you want to list: ");
             int.TryParse(Console.ReadLine(), out int numInput);
-            List<Employee> employees = departments[numInput].Employees;
-            TableEmployees(employees);
+            if (numInput < departments.Count && numInput > 0)
+            {
+                List<Employee> employees = departments[numInput].Employees;
+                TableEmployees(employees);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input.");
+            }
         }
 
         private static void TableHeaderDepartment()

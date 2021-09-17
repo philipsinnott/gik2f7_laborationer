@@ -11,11 +11,6 @@ namespace Laboration3
         public int ID { get; private set; }
         public string Title { get; private set; }
 
-        public Role()
-        {
-
-        }
-
         public Role(int id, string name)
         {
             ID = id;
