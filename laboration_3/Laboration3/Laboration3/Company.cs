@@ -14,11 +14,6 @@ namespace Laboration3
         public string URL { get; private set; }
         public List<Department> Departments { get; set; }
 
-        public Company()
-        {
-
-        }
-
         public Company(string name, string address, string orgnr, string url, List<Department> departments)
         {
             Name = name;
@@ -30,7 +25,18 @@ namespace Laboration3
 
         public int GetNumberOfEmployees()
         {
-            throw new NotImplementedException();
+            int numOfEmployees = 0;
+            List<Employee> employees;
+
+            foreach (Department dept in Departments)
+            {
+                employees = dept.Employees;
+                foreach (var employee in employees)
+                {
+                    numOfEmployees++;
+                }
+            }
+            return numOfEmployees;
         }
 
         public void GetDetails()
@@ -39,6 +45,7 @@ namespace Laboration3
             Console.WriteLine($"Address:          {Address}");
             Console.WriteLine($"Organization nr.: {OrganizationNumber}");
             Console.WriteLine($"Website URL:      {URL}");
+            Console.WriteLine($"No. of Employees: {GetNumberOfEmployees()}");
         }
     }
 }

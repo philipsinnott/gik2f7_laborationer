@@ -7,46 +7,21 @@ namespace Laboration3
     {
         static void Main(string[] args)
         {
-            // Display startup text
-            StandardMessages.DisplayStartupText();
-            StandardMessages.DisplayHrLine();
-
-            // Create Roles
+            // Instatiate classes and create lists populated with dummy data
+            //DataCreator dc = new();
             List<Role> roles = CreateData.CreateRoles();
-
-            // Print out roles
-            PrintData.PrintRoles(roles);
-            StandardMessages.DisplayHrLine();
-
-            // Creates Employees
             List<Employee> employees = CreateData.CreateEmployees(roles);
-
-            // Print out Employees
-            PrintData.PrintEmployees(employees);
-            StandardMessages.DisplayHrLine();
-
-            // Create Departments
             List<Department> departments = CreateData.CreateDepartments();
-            
-            // Print out Departments
-            PrintData.PrintDepartments(departments);
-            StandardMessages.DisplayHrLine();
-
-            // Create Company
+            CreateData.AssignToDepartment(departments, employees);
             var company = new Company(
-                "DICE (Digital Illusions CE AB)",
+                "DICE",
                 "Södermalmsallén 36, 118 28 Stockholm Sweden",
                 "556710-6520",
                 "https://www.dice.se",
-                departments
-                );
+                departments);
 
-            // Print Company Details
-            company.GetDetails();
+            // Display Console Menu
+            ConsoleUI.MenuInteract(company, employees, departments, roles);
         }
-        /*
-            departments[0].Employees.Add(employees[0]);
-            departments[0].Employees.Add(employees[1]);
-            departments[1].Employees.Add(employees[2]);*/
     }
 }

@@ -9,19 +9,17 @@ namespace Laboration3
     public class Role
     {
         public int ID { get; private set; }
-        public string Name { get; private set; }
-        public string Description { get; private set; }
+        public string Title { get; private set; }
 
         public Role()
         {
 
         }
 
-        public Role(int id, string name, string description)
+        public Role(int id, string name)
         {
             ID = id;
-            Name = name;
-            Description = description;
+            Title = name;
         }
     }
 }
