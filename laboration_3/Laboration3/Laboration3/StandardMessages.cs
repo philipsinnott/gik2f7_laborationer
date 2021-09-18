@@ -10,7 +10,7 @@ namespace Laboration3
     {
         public static void DisplayStartupText()
         {
-            Console.WriteLine($"Laboration 3 in GIK2F7 | Philip Sinnott (h20phisi) & Mattias Hedlund (h20mahed)");
+            Console.WriteLine($"  Assignment 3 in GIK2F7 | Philip Sinnott & Mattias Hedlund");
         }
         public string DisplayExitProgram()
         {
@@ -19,6 +19,11 @@ namespace Laboration3
         public static void DisplayHrLine()
         {
             Console.WriteLine("========================================");
+        }
+
+        public static void DisplayHrLineLong()
+        {
+            Console.WriteLine("=============================================================");
         }
     }
 }

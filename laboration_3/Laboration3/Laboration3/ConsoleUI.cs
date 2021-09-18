@@ -11,7 +11,7 @@ namespace Laboration3
         public static void MenuInteract(Company company, List<Employee> employees, List<Department> departments, List<Role> roles)
         {
             StandardMessages.DisplayStartupText();
-            StandardMessages.DisplayHrLine();
+            StandardMessages.DisplayHrLineLong();
 
             bool quitApp = false;
             while (!quitApp)
@@ -40,7 +40,7 @@ namespace Laboration3
                         PrintData.TableDepartmentEmployees(departments);
                         break;
                     case '5':
-                        Console.WriteLine("\n+==  Add temporary staff member ============+\n");
+                        Console.WriteLine("\n+==  Add temporary staff member ============================+\n");
                         DataCapture.CreateNewStaffMember(employees, roles);
                         DataCapture.AddStaffMemberToDepartment(employees, departments);
                         break;
