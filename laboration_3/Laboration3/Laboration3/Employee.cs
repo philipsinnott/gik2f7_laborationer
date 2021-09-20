@@ -30,5 +30,18 @@ namespace Laboration3
         {
             return $"{FirstName} {LastName}";
         }
+
+        public void GetDetails()
+        {
+            Console.WriteLine($"Full name:          {FullName()}");
+            Console.WriteLine($"Date of Employment: {DateOfEmployment}");
+            Console.WriteLine($"Is Fired:           {IsFired}");
+            Console.WriteLine($"Role:               {Role.Title}");
+        }
+
+        public override string ToString()
+        {
+            return $"FirstName: {FirstName}, LastName: {LastName}, DateOfEmployment: {DateOfEmployment}, IsFired: {IsFired}, Role: {Role}";
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    public static class PrintData
+    public static class DisplayTable
     {
         public static void TableEmployees(List<Employee> employees)
         {
@@ -46,17 +46,18 @@ namespace Laboration3
         public static void TableDepartmentEmployees(List<Department> departments)
         {
             TableDepartments(departments);
-            Console.Write("\nType which department ID you want to list: ");
-            int.TryParse(Console.ReadLine(), out int numInput);
-            if (numInput < departments.Count && numInput > 0)
+            int userInput = CaptureData.CaptureDepartmentId(departments);
+            if (userInput < departments.Count && userInput > 0)
             {
-                List<Employee> employees = departments[numInput].Employees;
+                List<Employee> employees = departments[userInput].Employees;
                 TableEmployees(employees);
             }
             else
             {
-                Console.WriteLine("Invalid input.");
+                Console.WriteLine($"Invalid input, Enter a number between 1 - {departments.Count - 1}");
             }
+
+
         }
 
         private static void TableHeaderDepartment()

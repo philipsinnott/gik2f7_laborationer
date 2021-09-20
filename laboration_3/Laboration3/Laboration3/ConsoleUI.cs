@@ -6,43 +6,46 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    class ConsoleUI
+    public class ConsoleUI
     {
         public static void MenuInteract(Company company, List<Employee> employees, List<Department> departments, List<Role> roles)
         {
             StandardMessages.DisplayStartupText();
-            StandardMessages.DisplayHrLineLong();
+            StandardMessages.DisplayHrLine();
 
             bool quitApp = false;
             while (!quitApp)
             {
-                MenuMain();
+                DisplayMenu();
                 // ReadKey waits for input from the user, hides input with key 'true'
                 ConsoleKeyInfo keypress = Console.ReadKey(true);
 
                 switch (keypress.KeyChar)
                 {
                     case '1':
-                        Console.WriteLine("\n+==  COMPANY DETAILS  ======================================+\n");
+                        Console.WriteLine($"{Environment.NewLine}+==  COMPANY DETAILS  ======================================+{Environment.NewLine}");
                         company.GetDetails();
                         break;
                     case '2':
-                        Console.WriteLine("\n+==  LIST OF ALL EMPLOYEES  ================================+\n");
-                        PrintData.TableEmployees(employees);
+                        Console.WriteLine($"{Environment.NewLine}+==  LIST OF ALL EMPLOYEES  ================================+{Environment.NewLine}");
+                        DisplayTable.TableEmployees(employees);
                         break;
                     case '3':
-                        Console.WriteLine("\n+==  LIST DEPARTMENTS & ROLES  =============================+\n");
-                        PrintData.TableDepartments(departments);
-                        PrintData.TableRoles(roles);
+                        Console.WriteLine($"{Environment.NewLine}+==  LIST DEPARTMENTS & ROLES  =============================+{Environment.NewLine}");
+                        DisplayTable.TableDepartments(departments);
+                        DisplayTable.TableRoles(roles);
                         break;
                     case '4':
-                        Console.WriteLine("\n+==  List of Employees in specified Department  ============+\n");
-                        PrintData.TableDepartmentEmployees(departments);
+                        Console.WriteLine($"{Environment.NewLine}+==  List of Employees in specified Department  ============+{Environment.NewLine}");
+                        DisplayTable.TableDepartmentEmployees(departments);
                         break;
                     case '5':
-                        Console.WriteLine("\n+==  Add temporary staff member ============================+\n");
-                        DataCapture.CreateNewStaffMember(employees, roles);
-                        DataCapture.AddStaffMemberToDepartment(employees, departments);
+                        Console.WriteLine($"{Environment.NewLine}+==  Add Employee (Non-persistant) =========================+{Environment.NewLine}");
+                        Employee emp = CaptureData.CaptureEmployee(roles);
+                        CreateData.AddEmployee(employees, emp);
+                        DisplayTable.TableDepartments(departments);
+                        int departmentId = CaptureData.CaptureDepartmentId(departments);
+                        CreateData.AssignEmployeeToDepartment(employees, departments, departmentId);
                         break;
                     case 'r':
                     case 'R':
@@ -60,20 +63,21 @@ namespace Laboration3
             Console.Clear();
         }
 
-        public static void MenuMain()
+        public static void DisplayMenu()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(
-                "+=====================  ASSIGNMENT 3  ======================+\n" +
-                "|  Press '1' Company Details                                |\n" +
-                "|  Press '2' List All Employees                             |\n" +
-                "|  Press '3' List Departments & Roles                       |\n" +
-                "|  Press '4' List Employees in Department                   |\n" +   
-                "|  Press '5' Add temporary staff member                     |\n" +
-                "|-----------------------------------------------------------|\n" +
-                "|  Press 'R' Reset the screen                               |\n" +
-                "|  Press 'Q' to quit the program                            |\n" +
-                "+===========================================================+"
+                $"+=======================  MAIN MENU  =======================+{Environment.NewLine}" +
+                $"|  Press '1' Company Details                                |{Environment.NewLine}" +
+                $"|  Press '2' List All Employees                             |{Environment.NewLine}" +
+                $"|  Press '3' List Departments & Roles                       |{Environment.NewLine}" +
+                $"|-----------------------------------------------------------|{Environment.NewLine}" +
+                $"|  Press '4' List Employees in Department                   |{Environment.NewLine}" +   
+                $"|  Press '5' Add Employee (Non-persistant)                  |{Environment.NewLine}" +
+                $"|-----------------------------------------------------------|{Environment.NewLine}" +
+                $"|  Press 'R' Reset the screen                               |{Environment.NewLine}" +
+                $"|  Press 'Q' to quit the program                            |{Environment.NewLine}" +
+                $"+===========================================================+"
                 );
             Console.ResetColor();
         }

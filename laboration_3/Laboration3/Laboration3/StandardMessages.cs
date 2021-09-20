@@ -12,16 +12,11 @@ namespace Laboration3
         {
             Console.WriteLine($"  Assignment 3 in GIK2F7 | Philip Sinnott & Mattias Hedlund");
         }
-        public string DisplayExitProgram()
+        public static void DisplayExitProgram()
         {
-            return $"Exiting program...";
+            Console.WriteLine($"Exited the application...");
         }
         public static void DisplayHrLine()
-        {
-            Console.WriteLine("========================================");
-        }
-
-        public static void DisplayHrLineLong()
         {
             Console.WriteLine("=============================================================");
         }

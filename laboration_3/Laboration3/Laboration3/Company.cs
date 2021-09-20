@@ -47,5 +47,10 @@ namespace Laboration3
             Console.WriteLine($"Website URL:      {URL}");
             Console.WriteLine($"No. of Employees: {GetNumberOfEmployees()}");
         }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Address: {Address}, OrganizationNumber: {OrganizationNumber}, URL: {URL}, Department List: {Departments}";
+        }
     }
 }

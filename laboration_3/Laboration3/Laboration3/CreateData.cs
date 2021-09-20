@@ -8,8 +8,11 @@ namespace Laboration3
 {
     public class CreateData
     {
-        // Döpa om till PopulateRoles ??? då det är dummy data. Tänker liknande för samtliga
-        public static List<Role> CreateRoles()
+        /// <summary>
+        /// Create a List filled with predefined Role objects
+        /// </summary>
+        /// <returns>List of Role objects</returns>
+        public static List<Role> AddRoles()
         {
             List<Role> output = new();
             output.Add(new Role(0, "Unassigned"));
@@ -31,7 +34,11 @@ namespace Laboration3
             return output;
         }
 
-        public static List<Employee> CreateEmployees(List<Role> role)
+        /// <summary>
+        /// Create a List filled with predefined Employee objects
+        /// </summary>
+        /// <returns>List of Employee objects</returns>
+        public static List<Employee> AddEmployees(List<Role> role)
         {
             List<Employee> output = new List<Employee>();
             output.Add(new Employee("Anders", "Hallberg", ToDate("2014-08-05"), SelectID(role, 13)));
@@ -59,7 +66,11 @@ namespace Laboration3
             return output;
         }
 
-        public static List<Department> CreateDepartments()
+        /// <summary>
+        /// Create a List filled with predefined Department objects
+        /// </summary>
+        /// <returns>List of Department objects</returns>
+        public static List<Department> AddDepartments()
         {
             List<Employee> unassigned = new();
             List<Employee> management = new();
@@ -78,7 +89,10 @@ namespace Laboration3
             return output;
         }
 
-        // Göra detta snyggare???
+        /// <summary>
+        /// Assign employees to specific departments
+        /// </summary>
+        /// <returns></returns>
         public static void AssignToDepartment(List<Department> dept, List<Employee> emp)
         {
             dept[5].Employees.Add(emp[0]);
@@ -105,12 +119,43 @@ namespace Laboration3
             dept[2].Employees.Add(emp[21]);
         }
 
-        // Flytta till ny klass
+        /// <summary>
+        /// Add Employee to List of Employees 
+        /// </summary>
+        /// <param name="employees"></param>
+        /// <param name="employee"></param>
+        public static void AddEmployee(List<Employee> employees, Employee employee)
+        {
+            employees.Add(employee);
+        }
+
+        /// <summary>
+        /// Assigns last employee in List of Employees to specified Department
+        /// </summary>
+        /// <param name="employees"></param>
+        /// <param name="departments"></param>
+        /// <param name="id"></param>
+        public static void AssignEmployeeToDepartment(List<Employee> employees, List<Department> departments, int id)
+        {
+            departments[id].Employees.Add(employees[employees.Count - 1]);
+        }
+
+        /// <summary>
+        /// Search List with Role ID. If ID not found return a default value
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="id"></param>
+        /// <returns>Role object</returns>
         public static Role SelectID(List<Role> item, int id)
         {
             return item.SingleOrDefault(x => x.ID == id) ?? item[0];
         }
-        // Flytta till ny klass
+
+        /// <summary>
+        /// Shorter version for Converting to DateTime
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>DateTime value</returns>
         public static DateTime ToDate(string str)
         {
             return Convert.ToDateTime(str);

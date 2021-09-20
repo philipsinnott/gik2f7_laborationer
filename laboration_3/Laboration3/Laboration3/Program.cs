@@ -7,12 +7,13 @@ namespace Laboration3
     {
         static void Main(string[] args)
         {
-            // Instatiate classes and create lists populated with dummy data
-            //DataCreator dc = new();
-            List<Role> roles = CreateData.CreateRoles();
-            List<Employee> employees = CreateData.CreateEmployees(roles);
-            List<Department> departments = CreateData.CreateDepartments();
+            // Create lists populated with simulated data
+            List<Role> roles = CreateData.AddRoles();
+            List<Employee> employees = CreateData.AddEmployees(roles);
+            List<Department> departments = CreateData.AddDepartments();
             CreateData.AssignToDepartment(departments, employees);
+
+            // Instatiate the Company with Information
             var company = new Company(
                 "DICE",
                 "Södermalmsallén 36, 118 28 Stockholm Sweden",
@@ -20,7 +21,6 @@ namespace Laboration3
                 "https://www.dice.se",
                 departments);
 
-            /*DataCapture.CreateNewStaffMember(roles);*/
             // Display Console Menu
             ConsoleUI.MenuInteract(company, employees, departments, roles);
             
