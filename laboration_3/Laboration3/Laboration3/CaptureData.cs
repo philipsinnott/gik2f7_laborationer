@@ -19,11 +19,21 @@ namespace Laboration3
             string firstName = Console.ReadLine();
             Console.Write("Last name: ");
             string lastName = Console.ReadLine();
-            Console.Write("Date of Employment [YYYY-MM-DD]: ");
-            DateTime.TryParse(Console.ReadLine(), out DateTime dateOfEmployment);
+
+            DateTime dateOfEmployment;
+            do {
+                Console.Write("Date of Employment [YYYY-MM-DD]: ");
+                DateTime.TryParse(Console.ReadLine(), out dateOfEmployment);
+            } while (dateOfEmployment > DateTime.Now || dateOfEmployment < DateTime.Today.AddYears(-80));
+
             DisplayTable.TableRoles(roles);
-            Console.Write($"Select Role ID [1-{roles.Count - 1}]: ");
-            int.TryParse(Console.ReadLine(), out int roleId);
+
+            int roleId;
+            do {
+                Console.Write($"Select Role ID [1-{roles.Count - 1}]: ");
+                int.TryParse(Console.ReadLine(), out roleId);
+            } while (roleId >= roles.Count || roleId < 1);
+
             Employee employee = new(firstName, lastName, dateOfEmployment, roles[roleId]);
             return employee;
         }
@@ -34,8 +44,11 @@ namespace Laboration3
         /// <returns>Integer value</returns>
         public static int CaptureDepartmentId(List<Department> departments)
         {
-            Console.Write($"Select Department ID [1-{departments.Count - 1}]: ");
-            int.TryParse(Console.ReadLine(), out int departmentId);
+            int departmentId;
+            do {
+                Console.Write($"Select Department ID [1-{departments.Count - 1}]: ");
+                int.TryParse(Console.ReadLine(), out departmentId);
+            } while (departmentId >= departments.Count || departmentId < 1);
             return departmentId;
         }
     }
