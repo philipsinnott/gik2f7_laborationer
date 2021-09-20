@@ -38,31 +38,31 @@ namespace Laboration3
         /// Create a List filled with predefined Employee objects
         /// </summary>
         /// <returns>List of Employee objects</returns>
-        public static List<Employee> AddEmployees(List<Role> role)
+        public static List<Employee> AddEmployees(List<Role> roles)
         {
             List<Employee> output = new List<Employee>();
-            output.Add(new Employee("Anders", "Hallberg", ToDate("2014-08-05"), SelectID(role, 13)));
-            output.Add(new Employee("Anders", "Lind", ToDate("2013-12-22"), SelectID(role, 13)));
-            output.Add(new Employee("Amo", "Mostofi", ToDate("2012-12-05"), SelectID(role, 5)));
-            output.Add(new Employee("Elin", "Holmberg", ToDate("2018-02-14"), SelectID(role, 5)));
-            output.Add(new Employee("Edvin", "Eriksson", ToDate("2020-07-18"), SelectID(role, 11)));
-            output.Add(new Employee("Per", "Bergqvist", ToDate("2002-05-14"), SelectID(role, 14)));
-            output.Add(new Employee("Jonatan", "McEvenue", ToDate("2016-07-17"), SelectID(role, 15)));
-            output.Add(new Employee("Julien", "Petotte", ToDate("2015-07-11"), SelectID(role, 11)));
-            output.Add(new Employee("Pawel", "Nowak", ToDate("2020-01-16"), SelectID(role, 11)));
-            output.Add(new Employee("Niels", "Vaes", ToDate("2017-07-19"), SelectID(role, 9)));
-            output.Add(new Employee("Mattias", "Kirsten", ToDate("2020-07-27"), SelectID(role, 9)));
-            output.Add(new Employee("Tommy", "Rydling", ToDate("2016-11-24"), SelectID(role, 10)));
-            output.Add(new Employee("Theodor", "Gerhamn", ToDate("2019-12-12"), SelectID(role, 10)));
-            output.Add(new Employee("Philip", "Eriksson", ToDate("2018-07-16"), SelectID(role, 12)));
-            output.Add(new Employee("Timmy", "Jonsson", ToDate("2020-07-11"), SelectID(role, 1)));
-            output.Add(new Employee("Paul", "Watson", ToDate("2020-07-16"), SelectID(role, 2)));
-            output.Add(new Employee("Oskar", "Steinhauf", ToDate("2016-09-22"), SelectID(role, 3)));
-            output.Add(new Employee("Stuart", "Watson", ToDate("2010-06-16"), SelectID(role, 3)));
-            output.Add(new Employee("Niklas", "Domander", ToDate("2012-07-30"), SelectID(role, 7)));
-            output.Add(new Employee("Marina", "Waltari", ToDate("2012-07-16"), SelectID(role, 8)));
-            output.Add(new Employee("Karin", "Thulin Carlberg", ToDate("2020-07-23"), SelectID(role, 4)));
-            output.Add(new Employee("John", "Wasilczyk", ToDate("2014-01-11"), SelectID(role, 6)));
+            output.Add(new Employee("Anders", "Hallberg", ToDate("2014-08-05"), roles[13]));
+            output.Add(new Employee("Anders", "Lind", ToDate("2013-12-22"), roles[13]));
+            output.Add(new Employee("Amo", "Mostofi", ToDate("2012-12-05"), roles[5]));
+            output.Add(new Employee("Elin", "Holmberg", ToDate("2018-02-14"), roles[5]));
+            output.Add(new Employee("Edvin", "Eriksson", ToDate("2020-07-18"), roles[11]));
+            output.Add(new Employee("Per", "Bergqvist", ToDate("2002-05-14"), roles[14]));
+            output.Add(new Employee("Jonatan", "McEvenue", ToDate("2016-07-17"), roles[15]));
+            output.Add(new Employee("Julien", "Petotte", ToDate("2015-07-11"), roles[11]));
+            output.Add(new Employee("Pawel", "Nowak", ToDate("2020-01-16"), roles[11]));
+            output.Add(new Employee("Niels", "Vaes", ToDate("2017-07-19"), roles[9]));
+            output.Add(new Employee("Mattias", "Kirsten", ToDate("2020-07-27"), roles[9]));
+            output.Add(new Employee("Tommy", "Rydling", ToDate("2016-11-24"), roles[10]));
+            output.Add(new Employee("Theodor", "Gerhamn", ToDate("2019-12-12"), roles[10]));
+            output.Add(new Employee("Philip", "Eriksson", ToDate("2018-07-16"), roles[12]));
+            output.Add(new Employee("Timmy", "Jonsson", ToDate("2020-07-11"), roles[1]));
+            output.Add(new Employee("Paul", "Watson", ToDate("2020-07-16"), roles[2]));
+            output.Add(new Employee("Oskar", "Steinhauf", ToDate("2016-09-22"), roles[3]));
+            output.Add(new Employee("Stuart", "Watson", ToDate("2010-06-16"), roles[3]));
+            output.Add(new Employee("Niklas", "Domander", ToDate("2012-07-30"), roles[7]));
+            output.Add(new Employee("Marina", "Waltari", ToDate("2012-07-16"), roles[8]));
+            output.Add(new Employee("Karin", "Thulin Carlberg", ToDate("2020-07-23"), roles[4]));
+            output.Add(new Employee("John", "Wasilczyk", ToDate("2014-01-11"), roles[6]));
             return output;
         }
 
@@ -138,17 +138,6 @@ namespace Laboration3
         public static void AssignEmployeeToDepartment(List<Employee> employees, List<Department> departments, int id)
         {
             departments[id].Employees.Add(employees[employees.Count - 1]);
-        }
-
-        /// <summary>
-        /// Search List with Role ID. If ID not found return a default value
-        /// </summary>
-        /// <param name="item"></param>
-        /// <param name="id"></param>
-        /// <returns>Role object</returns>
-        public static Role SelectID(List<Role> item, int id)
-        {
-            return item.SingleOrDefault(x => x.ID == id) ?? item[0];
         }
 
         /// <summary>
