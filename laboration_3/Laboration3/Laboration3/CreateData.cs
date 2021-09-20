@@ -113,9 +113,9 @@ namespace Laboration3
             dept[1].Employees.Add(emp[15]);
             dept[1].Employees.Add(emp[16]);
             dept[1].Employees.Add(emp[17]);
-            dept[1].Employees.Add(emp[18]);
+            dept[3].Employees.Add(emp[18]);
             dept[3].Employees.Add(emp[19]);
-            dept[3].Employees.Add(emp[20]);
+            dept[1].Employees.Add(emp[20]);
             dept[2].Employees.Add(emp[21]);
         }
 
