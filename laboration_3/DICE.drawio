@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-21T07:07:04.990Z" agent="5.0 (Windows)" etag="jx1n21dlnkDAThq3rUnI" version="15.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-21T07:34:44.240Z" agent="5.0 (Windows)" etag="ISnCn--91JHaENIZwVEK" version="15.2.9" type="github">
   <diagram id="iJiHooxQ-oz1hIhevUaH" name="Page-1">
     <mxGraphModel dx="1673" dy="885" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -149,7 +149,7 @@
         <mxCell id="O3MJyxwNwP9tG67ijSce-5" value="+ MenuInteract(company: Company, employees: List&lt;Employee&gt;,&#xa;        departments: List&lt;Department&gt;,roles: List&lt;Role&gt;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="O3MJyxwNwP9tG67ijSce-1" vertex="1">
           <mxGeometry y="34" width="369" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="O3MJyxwNwP9tG67ijSce-4" value="+ MenuMain(): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="O3MJyxwNwP9tG67ijSce-1" vertex="1">
+        <mxCell id="O3MJyxwNwP9tG67ijSce-4" value="+ DisplayMenu(): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="O3MJyxwNwP9tG67ijSce-1" vertex="1">
           <mxGeometry y="74" width="369" height="26" as="geometry" />
         </mxCell>
         <mxCell id="O3MJyxwNwP9tG67ijSce-6" value="CreateData" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -215,7 +215,7 @@
         <mxCell id="O3MJyxwNwP9tG67ijSce-25" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="O3MJyxwNwP9tG67ijSce-23" vertex="1">
           <mxGeometry y="26" width="339" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="O3MJyxwNwP9tG67ijSce-26" value="+ CaptureEmployee(role: List&lt;Role&gt;): Employee" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="O3MJyxwNwP9tG67ijSce-23" vertex="1">
+        <mxCell id="O3MJyxwNwP9tG67ijSce-26" value="+ CaptureEmployee(roles: List&lt;Role&gt;): Employee" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="O3MJyxwNwP9tG67ijSce-23" vertex="1">
           <mxGeometry y="34" width="339" height="26" as="geometry" />
         </mxCell>
         <mxCell id="O3MJyxwNwP9tG67ijSce-29" value="+ CaptureDepartmentId(departments List&lt;Department&gt;): Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="O3MJyxwNwP9tG67ijSce-23" vertex="1">
@@ -325,6 +325,17 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="270" y="324" as="sourcePoint" />
             <mxPoint x="320" y="324" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9e8dpLW64dKt-voAxynq-3" value="" style="endArrow=open;endFill=0;endSize=12;html=1;" edge="1" parent="1" source="O3MJyxwNwP9tG67ijSce-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="518.8191489361702" y="718.9999999999998" as="sourcePoint" />
+            <mxPoint x="410" y="999" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="706" />
+              <mxPoint x="450" y="850" />
+              <mxPoint x="450" y="999" />
+            </Array>
           </mxGeometry>
         </mxCell>
       </root>
