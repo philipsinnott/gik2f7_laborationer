@@ -12,6 +12,5 @@ namespace Laboration3
 
         void GetDetails();
         int GetNumberOfEmployees();
-        string ToString();
     }
 }

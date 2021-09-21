@@ -10,6 +10,5 @@ namespace Laboration3
         string LastName { get; }
         IRole Role { get; }
         string FullName();
-        string ToString();
     }
 }
