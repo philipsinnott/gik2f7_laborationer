@@ -21,22 +21,6 @@ namespace Laboration3
                 "https://www.dice.se",
                 departments);
 
-            //foreach (var item in roles)
-            //{
-            //    StandardMessages.DisplayHrLine();
-            //    item.GetDetails();
-            //}
-            //foreach (var item in departments)
-            //{
-            //    StandardMessages.DisplayHrLine();
-            //    item.GetDetails();
-            //}
-            //foreach (var item in employees)
-            //{
-            //    StandardMessages.DisplayHrLine();
-            //    item.GetDetails();
-            //}
-
             // Display Console Menu
             ConsoleUI.MenuInteract(company, employees, departments, roles);
             

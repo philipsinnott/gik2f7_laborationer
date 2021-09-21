@@ -24,7 +24,7 @@ namespace Laboration3
             do {
                 Console.Write("Date of Employment [YYYY-MM-DD]: ");
                 DateTime.TryParse(Console.ReadLine(), out dateOfEmployment);
-            } while (dateOfEmployment > DateTime.Now || dateOfEmployment < DateTime.Today.AddYears(-80));
+            } while (dateOfEmployment > DateTime.Today.AddYears(1) || dateOfEmployment < DateTime.Today.AddYears(-80));
 
             DisplayTable.TableRoles(roles);
 

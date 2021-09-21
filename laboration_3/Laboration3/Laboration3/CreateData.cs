@@ -93,30 +93,30 @@ namespace Laboration3
         /// Assign employees to specific departments
         /// </summary>
         /// <returns></returns>
-        public static void AssignToDepartment(List<Department> dept, List<Employee> emp)
+        public static void AssignToDepartment(List<Department> deptartment, List<Employee> employee)
         {
-            dept[5].Employees.Add(emp[0]);
-            dept[5].Employees.Add(emp[1]);
-            dept[2].Employees.Add(emp[2]);
-            dept[2].Employees.Add(emp[3]);
-            dept[4].Employees.Add(emp[4]);
-            dept[5].Employees.Add(emp[5]);
-            dept[5].Employees.Add(emp[6]);
-            dept[4].Employees.Add(emp[7]);
-            dept[4].Employees.Add(emp[8]);
-            dept[4].Employees.Add(emp[9]);
-            dept[4].Employees.Add(emp[10]);
-            dept[4].Employees.Add(emp[11]);
-            dept[4].Employees.Add(emp[12]);
-            dept[4].Employees.Add(emp[13]);
-            dept[1].Employees.Add(emp[14]);
-            dept[1].Employees.Add(emp[15]);
-            dept[1].Employees.Add(emp[16]);
-            dept[1].Employees.Add(emp[17]);
-            dept[3].Employees.Add(emp[18]);
-            dept[3].Employees.Add(emp[19]);
-            dept[1].Employees.Add(emp[20]);
-            dept[2].Employees.Add(emp[21]);
+            deptartment[5].Employees.Add(employee[0]);
+            deptartment[5].Employees.Add(employee[1]);
+            deptartment[2].Employees.Add(employee[2]);
+            deptartment[2].Employees.Add(employee[3]);
+            deptartment[4].Employees.Add(employee[4]);
+            deptartment[5].Employees.Add(employee[5]);
+            deptartment[5].Employees.Add(employee[6]);
+            deptartment[4].Employees.Add(employee[7]);
+            deptartment[4].Employees.Add(employee[8]);
+            deptartment[4].Employees.Add(employee[9]);
+            deptartment[4].Employees.Add(employee[10]);
+            deptartment[4].Employees.Add(employee[11]);
+            deptartment[4].Employees.Add(employee[12]);
+            deptartment[4].Employees.Add(employee[13]);
+            deptartment[1].Employees.Add(employee[14]);
+            deptartment[1].Employees.Add(employee[15]);
+            deptartment[1].Employees.Add(employee[16]);
+            deptartment[1].Employees.Add(employee[17]);
+            deptartment[3].Employees.Add(employee[18]);
+            deptartment[3].Employees.Add(employee[19]);
+            deptartment[1].Employees.Add(employee[20]);
+            deptartment[2].Employees.Add(employee[21]);
         }
 
         /// <summary>
