@@ -9,9 +9,7 @@ namespace Laboration3
         bool IsFired { get; }
         string LastName { get; }
         IRole Role { get; }
-
         string FullName();
-        void GetDetails();
         string ToString();
     }
 }

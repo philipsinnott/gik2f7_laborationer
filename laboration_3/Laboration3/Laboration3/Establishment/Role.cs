@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    public class Role : IGetDetails, IRole
+    public class Role : IRole
     {
         public int ID { get; private set; }
         public string Title { get; private set; }
@@ -15,12 +15,6 @@ namespace Laboration3
         {
             ID = id;
             Title = title;
-        }
-
-        public void GetDetails()
-        {
-            Console.WriteLine($"ID:    {ID}");
-            Console.WriteLine($"Title: {Title}");
         }
 
         public override string ToString()

@@ -4,8 +4,6 @@
     {
         int ID { get; }
         string Title { get; }
-
-        void GetDetails();
         string ToString();
     }
 }

@@ -7,8 +7,6 @@ namespace Laboration3
         List<IEmployee> Employees { get; }
         int ID { get; }
         string Name { get; }
-
-        void GetDetails();
         string ToString();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    public class Company : IGetDetails, INumberOfEmployees, ICompany
+    public class Company : ICompany
     {
         public string Name { get; private set; }
         public string Address { get; private set; }
