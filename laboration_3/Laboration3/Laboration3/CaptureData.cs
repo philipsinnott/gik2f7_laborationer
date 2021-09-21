@@ -13,7 +13,7 @@ namespace Laboration3
         /// </summary>
         /// <param name="roles"></param>
         /// <returns>Employee object</returns>
-        public static Employee CaptureEmployee(List<Role> roles)
+        public static IEmployee CaptureEmployee(List<IRole> roles)
         {
             Console.Write("First name: ");
             string firstName = Console.ReadLine();
@@ -42,7 +42,7 @@ namespace Laboration3
         /// Take input from user regarding Department ID
         /// </summary>
         /// <returns>Integer value</returns>
-        public static int CaptureDepartmentId(List<Department> departments)
+        public static int CaptureDepartmentId(List<IDepartment> departments)
         {
             int departmentId;
             do {

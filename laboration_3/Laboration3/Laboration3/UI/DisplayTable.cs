@@ -8,20 +8,20 @@ namespace Laboration3
 {
     public static class DisplayTable
     {
-        public static void TableEmployees(List<Employee> employees)
+        public static void TableEmployees(List<IEmployee> employees)
         {
             TableHeaderEmployee();
-            foreach (Employee e in employees)
+            foreach (IEmployee e in employees)
             {
                 Console.Write($"  {e.FullName(),-22}");
                 Console.Write($"  {e.Role.Title,-21}");
                 Console.WriteLine($"{e.DateOfEmployment:yyyy-MM-dd}");
             }
         }
-        public static void TableRoles(List<Role> roles)
+        public static void TableRoles(List<IRole> roles)
         {
             TableHeaderRole();
-            foreach (Role role in roles)
+            foreach (IRole role in roles)
             {
                 if (role.ID > 0)
                 {
@@ -30,10 +30,10 @@ namespace Laboration3
                 }
             }
         }
-        public static void TableDepartments(List<Department> departments)
+        public static void TableDepartments(List<IDepartment> departments)
         {
             TableHeaderDepartment();
-            foreach (Department dept in departments)
+            foreach (IDepartment dept in departments)
             {
                 if (dept.ID > 0)
                 {
@@ -43,13 +43,13 @@ namespace Laboration3
             }
         }
 
-        public static void TableDepartmentEmployees(List<Department> departments)
+        public static void TableDepartmentEmployees(List<IDepartment> departments)
         {
             TableDepartments(departments);
             int userInput = CaptureData.CaptureDepartmentId(departments);
             if (userInput < departments.Count && userInput > 0)
             {
-                List<Employee> employees = departments[userInput].Employees;
+                List<IEmployee> employees = departments[userInput].Employees;
                 TableEmployees(employees);
             }
             else

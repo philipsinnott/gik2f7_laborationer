@@ -8,7 +8,7 @@ namespace Laboration3
 {
     public class ConsoleUI
     {
-        public static void MenuInteract(Company company, List<Employee> employees, List<Department> departments, List<Role> roles)
+        public static void MenuInteract(ICompany company, List<IEmployee> employees, List<IDepartment> departments, List<IRole> roles)
         {
             StandardMessages.DisplayStartupText();
             StandardMessages.DisplayHrLine();
@@ -41,7 +41,7 @@ namespace Laboration3
                         break;
                     case '5':
                         Console.WriteLine($"{Environment.NewLine}+==  Add Employee (Non-persistant) =========================+{Environment.NewLine}");
-                        Employee emp = CaptureData.CaptureEmployee(roles);
+                        IEmployee emp = CaptureData.CaptureEmployee(roles);
                         CreateData.AddEmployee(employees, emp);
                         DisplayTable.TableDepartments(departments);
                         int departmentId = CaptureData.CaptureDepartmentId(departments);

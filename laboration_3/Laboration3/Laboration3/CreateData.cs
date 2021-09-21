@@ -12,9 +12,9 @@ namespace Laboration3
         /// Create a List filled with predefined Role objects
         /// </summary>
         /// <returns>List of Role objects</returns>
-        public static List<Role> AddRoles()
+        public static List<IRole> AddRoles()
         {
-            List<Role> output = new();
+            List<IRole> output = new();
             output.Add(new Role(0, "Unassigned"));
             output.Add(new Role(1, "Developer Director"));  // Management
             output.Add(new Role(2, "QA Project Manager"));  // Management
@@ -38,9 +38,9 @@ namespace Laboration3
         /// Create a List filled with predefined Employee objects
         /// </summary>
         /// <returns>List of Employee objects</returns>
-        public static List<Employee> AddEmployees(List<Role> roles)
+        public static List<IEmployee> AddEmployees(List<IRole> roles)
         {
-            List<Employee> output = new List<Employee>();
+            List<IEmployee> output = new List<IEmployee>();
             output.Add(new Employee("Anders", "Hallberg", ToDate("2014-08-05"), roles[13]));
             output.Add(new Employee("Anders", "Lind", ToDate("2013-12-22"), roles[13]));
             output.Add(new Employee("Amo", "Mostofi", ToDate("2012-12-05"), roles[5]));
@@ -70,16 +70,16 @@ namespace Laboration3
         /// Create a List filled with predefined Department objects
         /// </summary>
         /// <returns>List of Department objects</returns>
-        public static List<Department> AddDepartments()
+        public static List<IDepartment> AddDepartments()
         {
-            List<Employee> unassigned = new();
-            List<Employee> management = new();
-            List<Employee> producers = new();
-            List<Employee> hr = new();
-            List<Employee> designers = new();
-            List<Employee> developers = new();
+            List<IEmployee> unassigned = new();
+            List<IEmployee> management = new();
+            List<IEmployee> producers = new();
+            List<IEmployee> hr = new();
+            List<IEmployee> designers = new();
+            List<IEmployee> developers = new();
 
-            List<Department> output = new();
+            List<IDepartment> output = new();
             output.Add(new Department(0, "Unassigned", unassigned));
             output.Add(new Department(1, "Management", management));
             output.Add(new Department(2, "Producers", producers));
@@ -93,30 +93,30 @@ namespace Laboration3
         /// Assign employees to specific departments
         /// </summary>
         /// <returns></returns>
-        public static void AssignToDepartment(List<Department> deptartment, List<Employee> employee)
+        public static void AssignToDepartment(List<IDepartment> departments, List<IEmployee> employees)
         {
-            deptartment[5].Employees.Add(employee[0]);
-            deptartment[5].Employees.Add(employee[1]);
-            deptartment[2].Employees.Add(employee[2]);
-            deptartment[2].Employees.Add(employee[3]);
-            deptartment[4].Employees.Add(employee[4]);
-            deptartment[5].Employees.Add(employee[5]);
-            deptartment[5].Employees.Add(employee[6]);
-            deptartment[4].Employees.Add(employee[7]);
-            deptartment[4].Employees.Add(employee[8]);
-            deptartment[4].Employees.Add(employee[9]);
-            deptartment[4].Employees.Add(employee[10]);
-            deptartment[4].Employees.Add(employee[11]);
-            deptartment[4].Employees.Add(employee[12]);
-            deptartment[4].Employees.Add(employee[13]);
-            deptartment[1].Employees.Add(employee[14]);
-            deptartment[1].Employees.Add(employee[15]);
-            deptartment[1].Employees.Add(employee[16]);
-            deptartment[1].Employees.Add(employee[17]);
-            deptartment[3].Employees.Add(employee[18]);
-            deptartment[3].Employees.Add(employee[19]);
-            deptartment[1].Employees.Add(employee[20]);
-            deptartment[2].Employees.Add(employee[21]);
+            departments[5].Employees.Add(employees[0]);
+            departments[5].Employees.Add(employees[1]);
+            departments[2].Employees.Add(employees[2]);
+            departments[2].Employees.Add(employees[3]);
+            departments[4].Employees.Add(employees[4]);
+            departments[5].Employees.Add(employees[5]);
+            departments[5].Employees.Add(employees[6]);
+            departments[4].Employees.Add(employees[7]);
+            departments[4].Employees.Add(employees[8]);
+            departments[4].Employees.Add(employees[9]);
+            departments[4].Employees.Add(employees[10]);
+            departments[4].Employees.Add(employees[11]);
+            departments[4].Employees.Add(employees[12]);
+            departments[4].Employees.Add(employees[13]);
+            departments[1].Employees.Add(employees[14]);
+            departments[1].Employees.Add(employees[15]);
+            departments[1].Employees.Add(employees[16]);
+            departments[1].Employees.Add(employees[17]);
+            departments[3].Employees.Add(employees[18]);
+            departments[3].Employees.Add(employees[19]);
+            departments[1].Employees.Add(employees[20]);
+            departments[2].Employees.Add(employees[21]);
         }
 
         /// <summary>
@@ -124,9 +124,11 @@ namespace Laboration3
         /// </summary>
         /// <param name="employees"></param>
         /// <param name="employee"></param>
-        public static void AddEmployee(List<Employee> employees, Employee employee)
+        public static void AddEmployee(List<IEmployee> employees, IEmployee employee)
         {
             employees.Add(employee);
+            Console.WriteLine();
+            Console.WriteLine($"Added {employee.FullName()}.");
         }
 
         /// <summary>
@@ -135,9 +137,11 @@ namespace Laboration3
         /// <param name="employees"></param>
         /// <param name="departments"></param>
         /// <param name="id"></param>
-        public static void AssignEmployeeToDepartment(List<Employee> employees, List<Department> departments, int id)
+        public static void AssignEmployeeToDepartment(List<IEmployee> employees, List<IDepartment> departments, int id)
         {
             departments[id].Employees.Add(employees[employees.Count - 1]);
+            Console.WriteLine();
+            Console.WriteLine($"Assigned to {departments[id].Name}.");
         }
 
         /// <summary>

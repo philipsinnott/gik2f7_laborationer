@@ -8,9 +8,9 @@ namespace Laboration3
         static void Main(string[] args)
         {
             // Create lists populated with simulated data
-            List<Role> roles = CreateData.AddRoles();
-            List<Employee> employees = CreateData.AddEmployees(roles);
-            List<Department> departments = CreateData.AddDepartments();
+            List<IRole> roles = CreateData.AddRoles();
+            List<IEmployee> employees = CreateData.AddEmployees(roles);
+            List<IDepartment> departments = CreateData.AddDepartments();
             CreateData.AssignToDepartment(departments, employees);
 
             // Instatiate the Company with Information

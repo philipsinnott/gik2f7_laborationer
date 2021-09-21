@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    public class Employee
+    public class Employee : IEmployee
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public DateTime DateOfEmployment { get; private set; }
         public bool IsFired { get; private set; } = false;
-        public Role Role { get; private set; }
+        public IRole Role { get; private set; }
 
-        public Employee()
-        {
-
-        }
-        public Employee(string fName, string lName, DateTime dateOfEmployment, Role role)
+        public Employee(string fName, string lName, DateTime dateOfEmployment, IRole role)
         {
             FirstName = fName;
             LastName = lName;

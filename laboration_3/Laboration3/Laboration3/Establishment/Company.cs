@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    public class Company : IGetDetails, INumberOfEmployees
+    public class Company : IGetDetails, INumberOfEmployees, ICompany
     {
         public string Name { get; private set; }
         public string Address { get; private set; }
         public string OrganizationNumber { get; private set; }
         public string URL { get; private set; }
-        public List<Department> Departments { get; set; }
+        public List<IDepartment> Departments { get; set; }
 
-        public Company(string name, string address, string orgnr, string url, List<Department> departments)
+        public Company(string name, string address, string orgnr, string url, List<IDepartment> departments)
         {
             Name = name;
             Address = address;
@@ -26,9 +26,9 @@ namespace Laboration3
         public int GetNumberOfEmployees()
         {
             int numOfEmployees = 0;
-            List<Employee> employees;
+            List<IEmployee> employees;
 
-            foreach (Department dept in Departments)
+            foreach (IDepartment dept in Departments)
             {
                 employees = dept.Employees;
                 foreach (var employee in employees)

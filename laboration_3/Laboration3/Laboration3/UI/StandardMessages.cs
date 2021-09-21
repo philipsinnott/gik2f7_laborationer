@@ -16,6 +16,7 @@ namespace Laboration3
         {
             Console.WriteLine($"Exited the application...");
         }
+
         public static void DisplayHrLine()
         {
             Console.WriteLine("=============================================================");

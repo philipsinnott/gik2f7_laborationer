@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    public class Role : IGetDetails
+    public class Role : IGetDetails, IRole
     {
         public int ID { get; private set; }
         public string Title { get; private set; }
 
-        public Role(int id, string name)
+        public Role(int id, string title)
         {
             ID = id;
-            Title = name;
+            Title = title;
         }
 
         public void GetDetails()

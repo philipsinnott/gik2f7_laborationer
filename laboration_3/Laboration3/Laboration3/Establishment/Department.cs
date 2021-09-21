@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Laboration3
 {
-    public class Department : IGetDetails
+    public class Department : IGetDetails, IDepartment
     {
         public int ID { get; private set; }
         public string Name { get; private set; }
-        public List<Employee> Employees { get; private set; }
+        public List<IEmployee> Employees { get; private set; }
 
-        public Department(int id, string name, List<Employee> employees)
+        public Department(int id, string name, List<IEmployee> employees)
         {
             ID = id;
             Name = name;
@@ -24,7 +24,7 @@ namespace Laboration3
             Console.WriteLine($"ID:    {ID}");
             Console.WriteLine($"Name:  {Name}");
             Console.WriteLine($"{Environment.NewLine}Employees in Department:{Environment.NewLine}------------------------");
-            foreach (Employee employee in Employees)
+            foreach (IEmployee employee in Employees)
             {
                 Console.WriteLine($"{employee.FullName()}");
             }
