@@ -5,48 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Laboration_4.Views"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        Title="Laboration 4" Height="450" Width="800">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
-        </Grid.RowDefinitions>
+
+        <!-- COLUMN 1 -->
+        <DataGrid Grid.Column="0" x:Name="People" AutoGenerateColumns="False" MaxWidth="200" HorizontalAlignment="Left" Margin="5 0 0 5">
+                <DataGrid.Columns>
+                <DataGridTextColumn Header="Full name" Foreground="DimGray" Binding="{Binding FullName}"/>
+                <!--<DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Margin="10 5">Full name</TextBlock>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=FullName}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+
+        <!-- COLUMN 2 -->
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="First name: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold" />
+            <TextBlock Text="-First name" Margin="10 5 50 0" FontSize="16" />
+            <!--<TextBox x:Name="firstNameText" Margin="10 5 50 0"/>-->
+            <TextBlock Text="Last name: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
+            <TextBlock Text="-Last name" Margin="10 5 50 0" FontSize="16" />
+            <!--<TextBox x:Name="lastNameText" Margin="10 5 50 0"/>-->
+            <TextBlock Text="Email: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
+            <TextBlock Text="-Email" Margin="10 5 50 0" FontSize="16" />
+            <!--<TextBox x:Name="emailText" Margin="10 5 50 0"/>-->
+        </StackPanel>
         
-        <!-- Row 1 -->
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="List of students" FontSize="24" TextAlignment="Center"/>
-
-        <!-- Row 2 -->
-        <DataGrid Grid.Row="2" Grid.Column="1" x:Name="People" CanUserAddRows="False" AutoGenerateColumns="False" MaxHeight="400">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Full Name" Binding="{Binding Path=FullName}" />
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=FullName}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <!-- Row 3 -->
-        
-
-        <!-- Row 4 -->
-        <Button Grid.Row="5" Grid.Column="4" Width="100" x:Name="LoadList">Load List</Button>
+        <!-- COLUMN 3 -->
+        <StackPanel Grid.Column="2">
+            <GroupBox Grid.Column="2" Margin="0 10" Header="Add user:" FontSize="16">
+                <StackPanel>
+                    <TextBlock Text="First name: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold" />
+                    <TextBox x:Name="addUserFirstNameText" Margin="10 5 50 0"/>
+                    <TextBlock Text="Last name: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
+                    <TextBox x:Name="addUserLastNameText" Margin="10 5 50 0"/>
+                    <TextBlock Text="Email: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
+                    <TextBox x:Name="addUserEmailText" Margin="10 5 50 0"/>
+                    <Button x:Name="addUser" Width="100" Content="Add user" Margin="0 10 0 0" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="loadList" FontSize="20" Width="100" Content="Load list" Margin="0 0 5 5"/>
+        </StackPanel>
     </Grid>
 </Window>
