@@ -27,19 +27,26 @@
         </Grid.RowDefinitions>
         
         <!-- Row 1 -->
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=FullName, Mode=OneWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="List of students" FontSize="24" TextAlignment="Center"/>
 
         <!-- Row 2 -->
-        <TextBox x:Name="FirstName" Grid.Row="2" Grid.Column="1" MinWidth="100"/>
-        <TextBox x:Name="LastName" Grid.Row="2" Grid.Column="2" MinWidth="100"/>
+        <DataGrid Grid.Row="2" Grid.Column="1" x:Name="People" CanUserAddRows="False" AutoGenerateColumns="False" MaxHeight="400">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Full Name" Binding="{Binding Path=FullName}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=FullName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <!-- Row 3 -->
-        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="People"
-                  SelectedItem="{Binding Path=SelectedPerson, Mode=OneWayToSource}"
-                  DisplayMemberPath="FirstName"/>
-        <TextBlock Grid.Row="3" Grid.Column="2" x:Name="SelectedPerson_LastName" />
+        
 
         <!-- Row 4 -->
-        <Button Grid.Row="4" Grid.Column="1" x:Name="ClearText">Clear text</Button>
+        <Button Grid.Row="5" Grid.Column="4" Width="100" x:Name="LoadList">Load List</Button>
     </Grid>
 </Window>

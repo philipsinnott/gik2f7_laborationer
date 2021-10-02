@@ -1,8 +1,10 @@
-﻿using CsvHelper;
+﻿using Caliburn.Micro;
+using CsvHelper;
 using CsvHelper.Configuration;
 using Laboration_4.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -13,9 +15,9 @@ namespace Laboration_4
 {
     public class CsvManager
     {
-        public static void ReadCsv(List<PersonModel> persons)
+        public List<PersonModel> ReadCsv()
         {
-            //List<PersonModel> records = new List<PersonModel>();
+            List<PersonModel> people = new List<PersonModel>();
             using (var streamReader = new StreamReader(@"C:\Users\Phili\source\repos\CsvHelperDEMO\CsvHelperDEMO\bin\Debug\net5.0\klasslista-21.csv"))
             {
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -25,14 +27,10 @@ namespace Laboration_4
 
                 using (var csvReader = new CsvReader(streamReader, config))
                 {
-                    persons = csvReader.GetRecords<PersonModel>().ToList();
+                    people = csvReader.GetRecords<PersonModel>().ToList();
                 }
-                //foreach (var record in records)
-                //{
-                //    Console.WriteLine($"{record.Username} | {record.FirstName} {record.LastName} | Mail: {record.Email}");
-                //}
+                return people;
             }
         }
-
     }
 }
