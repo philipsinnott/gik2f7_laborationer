@@ -44,7 +44,7 @@
                     <TextBox x:Name="addUserLastNameText" Margin="10 5 50 0"/>
                     <TextBlock Text="Email: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
                     <TextBox x:Name="addUserEmailText" Margin="10 5 50 0"/>
-                    <Button x:Name="addUser" Width="100" Content="Add user" Margin="0 10 0 0" HorizontalAlignment="Right"/>
+                    <Button x:Name="addUser" Width="100" Content="Add user" Margin="0 10 0 0" HorizontalAlignment="Right" Click="addUser_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

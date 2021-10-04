@@ -19,5 +19,16 @@ namespace Laboration_4.Models
                 return $"{ FirstName } { LastName }";
             }
         }
+        public PersonModel()
+        {
+
+        }
+        public PersonModel(string username, string firstName, string lastName, string email)
+        {
+            username = Username;
+            firstName = FirstName;
+            lastName = LastName;
+            email = Email;
+        }
     }
 }

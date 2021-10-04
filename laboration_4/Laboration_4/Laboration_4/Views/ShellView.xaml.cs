@@ -53,6 +53,10 @@ namespace Laboration_4.Views
             emailText.Text = item.Email.ToString();
         }
 
+        private void addUser_Click(object sender, RoutedEventArgs e)
+        {
+            //People.Add(new PersonModel("hello", "h", "h", "h"));
+        }
+    }     
 
-    }
 }

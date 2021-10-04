@@ -18,7 +18,7 @@ namespace Laboration_4
         public List<PersonModel> ReadCsv()
         {
             List<PersonModel> people = new List<PersonModel>();
-            using (var streamReader = new StreamReader(@"C:\Users\Phili\source\repos\CsvHelperDEMO\CsvHelperDEMO\bin\Debug\net5.0\klasslista-21.csv"))
+            using (var streamReader = new StreamReader(@"klasslista-21.csv"))
             {
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
@@ -30,6 +30,14 @@ namespace Laboration_4
                     people = csvReader.GetRecords<PersonModel>().ToList();
                 }
                 return people;
+            }
+        }
+        public void WriteToCsv(List<PersonModel> people)
+        {
+            using (var writer = new StreamWriter(@"klasslista-21.csv"))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(people);
             }
         }
     }
