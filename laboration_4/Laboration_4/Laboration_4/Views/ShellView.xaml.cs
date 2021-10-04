@@ -2,7 +2,9 @@
 using Laboration_4.Models;
 using Laboration_4.ViewModels;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,7 @@ namespace Laboration_4.Views
     public partial class ShellView : Window
     {
         public BindableCollection<PersonModel> People { get; set; }
+        public DataRowView ChosenItem { get; set; }
         CsvManager csvManager = new();
         public ShellView()
         {
@@ -35,5 +38,21 @@ namespace Laboration_4.Views
             myGrid.ItemsSource = People;
             loadList.IsEnabled = false;
         }
+
+        private void myGrid_SelectionChanged(object sender, SelectionChangedEventArgs args)
+        {
+            DataGrid dataGrid = (DataGrid)sender;
+            var index = dataGrid.SelectedIndex;
+            // Set index
+            DataGridRow row = dataGrid.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow;
+
+            // Get data behind row
+            PersonModel item = (PersonModel)dataGrid.ItemContainerGenerator.ItemFromContainer(row);
+            firstNameText.Text = item.FirstName.ToString();
+            lastNameText.Text = item.LastName.ToString();
+            emailText.Text = item.Email.ToString();
+        }
+
+
     }
 }

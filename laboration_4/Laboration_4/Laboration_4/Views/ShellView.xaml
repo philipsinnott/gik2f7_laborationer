@@ -15,33 +15,23 @@
         </Grid.ColumnDefinitions>
 
         <!-- COLUMN 1 -->
-        <DataGrid Name="myGrid" Grid.Column="0" AutoGenerateColumns="False" MaxWidth="250" HorizontalAlignment="Left" Margin="5 0 0 5" ItemsSource="{Binding People}">
+        <DataGrid Name="myGrid" Grid.Column="0" AutoGenerateColumns="False" MaxWidth="250" HorizontalAlignment="Left" Margin="5 0 0 5" ItemsSource="{Binding People}" SelectionChanged="myGrid_SelectionChanged">
                 <DataGrid.Columns>
-                <DataGridTextColumn Width="200" Header="Full name" Foreground="DimGray" Binding="{Binding FullName}"/>
-                <!--<DataGridTemplateColumn>
-                        <DataGridTemplateColumn.Header>
-                            <TextBlock Margin="10 5">Full name</TextBlock>
-                        </DataGridTemplateColumn.Header>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Path=FullName}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
-                </DataGrid.Columns>
+                <DataGridTextColumn x:Name="fullName" Width="200" Header="Full name" Foreground="DimGray" Binding="{Binding FullName}"/>
+            </DataGrid.Columns>
             </DataGrid>
 
         <!-- COLUMN 2 -->
         <StackPanel Grid.Column="1">
-            <TextBlock Text="First name: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold" />
-            <TextBlock Text="-First name" Margin="10 5 50 0" FontSize="16" />
-            <!--<TextBox x:Name="firstNameText" Margin="10 5 50 0"/>-->
-            <TextBlock Text="Last name: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
-            <TextBlock Text="-Last name" Margin="10 5 50 0" FontSize="16" />
-            <!--<TextBox x:Name="lastNameText" Margin="10 5 50 0"/>-->
-            <TextBlock Text="Email: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
-            <TextBlock Text="-Email" Margin="10 5 50 0" FontSize="16" />
-            <!--<TextBox x:Name="emailText" Margin="10 5 50 0"/>-->
+            <TextBlock Text="First name:" Margin="10 10 10 0" FontSize="16" FontWeight="Bold"/>
+            <!--<TextBlock Text="-First name" Margin="10 5 50 0" FontSize="16" Name="selectedFirstName"/>-->
+            <TextBox x:Name="firstNameText" Margin="10 5 50 0"/>
+            <TextBlock Text="Last name: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold" x:Name="selectedLastName"/>
+            <!--<TextBlock Text="-Last name" Margin="10 5 50 0" FontSize="16" />-->
+            <TextBox x:Name="lastNameText" Margin="10 5 50 0"/>
+            <TextBlock Text="Email: " Margin="10 10 10 0" FontSize="16" FontWeight="Bold" x:Name="selectedEmail"/>
+            <!--<TextBlock Text="-Email" Margin="10 5 50 0" FontSize="16" />-->
+            <TextBox x:Name="emailText" Margin="10 5 50 0"/>
         </StackPanel>
         
         <!-- COLUMN 3 -->
