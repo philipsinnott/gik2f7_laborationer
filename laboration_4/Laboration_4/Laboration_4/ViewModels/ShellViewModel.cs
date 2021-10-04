@@ -10,16 +10,15 @@ using System.IO;
 using System.Globalization;
 using CsvHelper.Configuration;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Laboration_4.ViewModels
 {
     public class ShellViewModel
     {
-        public BindableCollection<PersonModel> People { get; set; }
         public ShellViewModel()
         {
-            CsvManager csvManager = new();
-            People = new BindableCollection<PersonModel>(csvManager.ReadCsv());
+            
         }
     }
 }

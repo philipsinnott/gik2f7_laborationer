@@ -1,4 +1,6 @@
-﻿using Laboration_4.ViewModels;
+﻿using Caliburn.Micro;
+using Laboration_4.Models;
+using Laboration_4.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +22,18 @@ namespace Laboration_4.Views
     /// </summary>
     public partial class ShellView : Window
     {
+        public BindableCollection<PersonModel> People { get; set; }
+        CsvManager csvManager = new();
         public ShellView()
         {
             InitializeComponent();
+        }
+
+        private void loadList_Click(object sender, RoutedEventArgs e)
+        {
+            People = new BindableCollection<PersonModel>(csvManager.ReadCsv());
+            myGrid.ItemsSource = People;
+            loadList.IsEnabled = false;
         }
     }
 }
