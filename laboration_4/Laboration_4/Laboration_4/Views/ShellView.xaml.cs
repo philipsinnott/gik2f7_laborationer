@@ -55,7 +55,16 @@ namespace Laboration_4.Views
 
         private void addUser_Click(object sender, RoutedEventArgs e)
         {
-            //People.Add(new PersonModel("hello", "h", "h", "h"));
+            //Button btn = (Button)sender;
+            if (addUserFirstNameText.Text.Length >= 2 && addUserLastNameText.Text.Length >= 2 && addUserEmailText.Text.Length >= 5)
+            {
+                People.Add(new PersonModel("sample_username1", addUserFirstNameText.Text.ToString(), addUserLastNameText.Text.ToString(), addUserEmailText.Text.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("Invalid details, please try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            //csvManager.WriteToCsv(People);
         }
     }     
 
