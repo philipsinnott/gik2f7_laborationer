@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Laboration_4.Models
+namespace Laboration4_NoFW.Models
 {
     public class PersonModel
     {
-        public string Username { get; set; }
+        public string Username { get; set; } = "default_username";
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -16,19 +16,12 @@ namespace Laboration_4.Models
         {
             get
             {
-                return $"{ FirstName } { LastName }";
+                return $"{FirstName} {LastName}";
             }
         }
         public PersonModel()
         {
 
-        }
-        public PersonModel(string username, string firstName, string lastName, string email)
-        {
-            username = Username;
-            firstName = FirstName;
-            lastName = LastName;
-            email = Email;
         }
     }
 }

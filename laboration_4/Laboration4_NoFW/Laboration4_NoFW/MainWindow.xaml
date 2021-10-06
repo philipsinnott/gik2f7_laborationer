@@ -1,0 +1,107 @@
+﻿<Window x:Class="Laboration4_NoFW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Laboration4_NoFW"
+        mc:Ignorable="d"
+        Title="GIK2F7 | Laboration 4 av Philip Sinnott" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- COLUMN 1 -->
+        <ListBox x:Name="lstNamesDb" Grid.Column="0" Grid.ColumnSpan="1" SelectionChanged="lstNamesDb_SelectionChanged" Margin="0 0 0 40">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=FullName}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- COLUMN 2 -->
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="First name:"
+                       Margin="10 10 10 0"
+                       FontSize="16"
+                       FontWeight="Bold"/>
+
+            <TextBox x:Name="firstNameText" 
+                     Margin="10 5 50 0"/>
+
+            <TextBlock Text="Last name:"
+                       Margin="10 10 10 0"
+                       FontSize="16"
+                       FontWeight="Bold" />
+
+            <TextBox x:Name="lastNameText"
+                     Margin="10 5 50 0"/>
+
+            <TextBlock Text="Email:"
+                       Margin="10 10 10 0"
+                       FontSize="16"
+                       FontWeight="Bold" />
+
+            <TextBox x:Name="emailText"
+                     Margin="10 5 50 0" />
+        </StackPanel>
+
+        <!-- COLUMN 3 -->
+        <StackPanel Grid.Column="2">
+            <GroupBox Grid.Column="2"
+                      Margin="0 10"
+                      Header="Add user:"
+                      FontSize="16">
+                <StackPanel>
+                    <TextBlock Text="First name:"
+                               Margin="10 10 10 0"
+                               FontSize="16"
+                               FontWeight="Bold" />
+
+                    <TextBox x:Name="addUserFirstNameText"
+                             Margin="10 5 50 0"/>
+
+                    <TextBlock Text="Last name:"
+                               Margin="10 10 10 0"
+                               FontSize="16"
+                               FontWeight="Bold"/>
+
+                    <TextBox x:Name="addUserLastNameText"
+                             Margin="10 5 50 0"/>
+
+                    <TextBlock Text="Email:"
+                               Margin="10 10 10 0"
+                               FontSize="16"
+                               FontWeight="Bold"/>
+
+                    <TextBox x:Name="addUserEmailText"
+                             Margin="10 5 50 0"/>
+                    <Button x:Name="addUser"
+                            Width="100"
+                            Content="Add user"
+                            Margin="0 10 0 0"
+                            HorizontalAlignment="Right"
+                            Click="addUser_Click"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <!-- LOADLIST BUTTON -->
+        <StackPanel Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom">
+
+            <Button x:Name="loadList"
+                    FontSize="20"
+                    Width="100"
+                    Content="Load list"
+                    Margin="0 0 5 5"
+                    Click="loadList_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

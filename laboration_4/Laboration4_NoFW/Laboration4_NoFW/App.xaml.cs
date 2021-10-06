@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Laboration_4
+namespace Laboration4_NoFW
 {
     /// <summary>
     /// Interaction logic for App.xaml
