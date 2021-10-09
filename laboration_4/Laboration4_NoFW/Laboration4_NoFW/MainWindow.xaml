@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- COLUMN 1 -->
-        <ListBox x:Name="lstNamesDb" Grid.Column="0" Grid.ColumnSpan="1" SelectionChanged="lstNamesDb_SelectionChanged" Margin="0 0 0 40">
+        <ListBox x:Name="lstNamesDb" Grid.Column="0" Grid.ColumnSpan="1" SelectionChanged="LstNamesDb_SelectionChanged" Margin="0 0 0 40">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -23,6 +23,19 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <!-- DELETE USER BUTTON -->
+        <StackPanel Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom">
+
+            <Button x:Name="deleteUser"
+                    FontSize="18"
+                    Width="100"
+                    Content="Delete user"
+                    Margin="0 0 5 5"
+                    Click="DeleteUser_Click"/>
+        </StackPanel>
 
         <!-- COLUMN 2 -->
         <StackPanel Grid.Column="1">
@@ -86,7 +99,7 @@
                             Content="Add user"
                             Margin="0 10 0 0"
                             HorizontalAlignment="Right"
-                            Click="addUser_Click"/>
+                            Click="AddUser_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
@@ -101,7 +114,7 @@
                     Width="100"
                     Content="Load list"
                     Margin="0 0 5 5"
-                    Click="loadList_Click"/>
+                    Click="LoadList_Click"/>
         </StackPanel>
     </Grid>
 </Window>

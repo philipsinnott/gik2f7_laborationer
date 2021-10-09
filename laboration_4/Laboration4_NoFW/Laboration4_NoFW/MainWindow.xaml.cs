@@ -1,5 +1,6 @@
 ﻿using Laboration4_NoFW.Logic;
 using Laboration4_NoFW.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,16 +33,18 @@ namespace Laboration4_NoFW
             InitializeComponent();
         }
 
-        private void loadList_Click(object sender, RoutedEventArgs e)
+        private void LoadList_Click(object sender, RoutedEventArgs e)
         {
-            // disable button after click
-            loadList.IsEnabled = false;
-
-            People = csvManager.ReadCsv();
-            lstNamesDb.ItemsSource = People;
+            OpenFileDialog openFileDialog = new();
+            openFileDialog.InitialDirectory = @"c:\temp\";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                People = csvManager.ReadCsv(openFileDialog.FileName);
+                lstNamesDb.ItemsSource = People;
+            }
         }
 
-        private void addUser_Click(object sender, RoutedEventArgs e)
+        private void AddUser_Click(object sender, RoutedEventArgs e)
         {
             PersonModel addedPerson = new PersonModel() { Username = infoGen.UsernameGenerator(addUserFirstNameText.Text, addUserLastNameText.Text), FirstName = addUserFirstNameText.Text, LastName = addUserLastNameText.Text, Email = addUserEmailText.Text };
             if (validator.ValidateField(addedPerson.FirstName) == true && validator.ValidateField(addedPerson.LastName) == true && validator.ValidateField(addedPerson.Email) == true)
@@ -59,7 +62,7 @@ namespace Laboration4_NoFW
 
         }
 
-        private void lstNamesDb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void LstNamesDb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListBox listBox = (ListBox)sender;
             var index = listBox.SelectedIndex;
@@ -76,9 +79,13 @@ namespace Laboration4_NoFW
             emailText.Text = item.Email.ToString();
         }
 
-        private void deleteUser_Click(object sender, RoutedEventArgs e)
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
-
+            while (lstNamesDb.SelectedItems.Count > 0)
+            {
+                lstNamesDb.Items.Remove(lstNamesDb.SelectedItems[0]);
+                //lstNamesDb.Items.Remove(lstNamesDb.SelectedItems[0]);
+            }
         }
     }
 }

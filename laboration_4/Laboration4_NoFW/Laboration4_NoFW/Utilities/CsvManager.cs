@@ -8,29 +8,38 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Laboration4_NoFW
 {
     public class CsvManager
     {
-        public List<PersonModel> ReadCsv()
+        public List<PersonModel> ReadCsv(string path)
         {
-            using (var streamReader = new StreamReader(@"klasslista-21.csv"))
+            try
             {
-                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                using (var streamReader = new StreamReader(path))
                 {
-                    Delimiter = ";"
-                };
+                    var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        Delimiter = ";"
+                    };
 
-                using (var csvReader = new CsvReader(streamReader, config))
-                {
-                    var people = csvReader.GetRecords<PersonModel>().ToList();
-                    return people;
+                    using (var csvReader = new CsvReader(streamReader, config))
+                    {
+                        var people = csvReader.GetRecords<PersonModel>().ToList();
+                        return people;
+                    }
                 }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Invalid file.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw ex;
             }
         }
 
-        public void AppendToCsv(PersonModel added)
+        public async void AppendToCsv(PersonModel added)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -45,6 +54,7 @@ namespace Laboration4_NoFW
                 // Go to next record so new students don't get added to same row
                 csv.NextRecord();
                 csv.WriteRecord(added);
+                await csv.NextRecordAsync();
             }
         }
     }
